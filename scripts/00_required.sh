@@ -2,7 +2,7 @@
 
 # Needed for all installers
 sudo apt-get update -y
-sudo apt-get install -y curl git unzip
+sudo apt-get install -y curl git unzip wget
 
 # Create local folders
 mkdir -p $HOME/.local/bin
