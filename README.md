@@ -2,7 +2,7 @@
 
 Opinionated scripts to bootstrap an Android Terminal environment.
 
-This repository contains **my personal, opinionated setup** to configure a clean Android Terminal installation from scratch using automated scripts.  
+This repository contains **my personal, opinionated setup** to configure a clean Android Terminal installation from scratch using automated scripts.
 It is designed to be **reproducible**, **scriptable**, and easy to re-run after a fresh install or device reset.
 
 > ⚠️ Note: This is **not Termux**. It targets the Android Terminal environment.
@@ -73,3 +73,7 @@ You are encouraged to fork it, adapt it, or use it as inspiration for your own s
 
 All scripts are designed to be safely re-run.
 If something changes or breaks, you should be able to run the setup again without issues.
+
+```
+android-terminal-setup > source scripts/optional/app-codex.sh
+```
