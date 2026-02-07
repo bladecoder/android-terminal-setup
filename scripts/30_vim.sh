@@ -1,12 +1,13 @@
-#!/bin/sh
+#!/bin/bash
+set -euo pipefail
 
 sudo apt install -y vim
 
-cp ./configs/vimrc $HOME/.vimrc
+cp "./configs/vimrc" "$HOME/.vimrc"
 
 # Install vim-plug if not already installed
-if [ ! -f $HOME/.vim/autoload/plug.vim ]; then
-    curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
+    curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 # Install plugins

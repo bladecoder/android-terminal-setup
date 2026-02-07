@@ -1,8 +1,9 @@
 #!/bin/bash
+set -euo pipefail
 
 # Ensure git settings live under $HOME/.config
-mkdir -p $HOME/.config/git
-touch $HOME/.config/git/config
+mkdir -p "$HOME/.config/git"
+touch "$HOME/.config/git/config"
 
 # Set common git aliases
 git config --global alias.co checkout
@@ -21,10 +22,10 @@ git config --global init.defaultBranch main
 git config --global pull.rebase true
 
 # Set identification from install inputs
-if [[ -n "${SETUP_USER_NAME//[[:space:]]/}" ]]; then
-  git config --global user.name "$SETUP_USER_NAME"
+if [[ -n "${SETUP_USER_NAME:-}" && -n "${SETUP_USER_NAME//[[:space:]]/}" ]]; then
+  git config --global user.name "${SETUP_USER_NAME}"
 fi
 
-if [[ -n "${SETUP_USER_EMAIL//[[:space:]]/}" ]]; then
-  git config --global user.email "$SETUP_USER_EMAIL"
+if [[ -n "${SETUP_USER_EMAIL:-}" && -n "${SETUP_USER_EMAIL//[[:space:]]/}" ]]; then
+  git config --global user.email "${SETUP_USER_EMAIL}"
 fi

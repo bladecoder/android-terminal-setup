@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Install mise for managing multiple versions of languages. See https://mise.jdx.dev/
 sudo apt-get update -y && sudo apt-get install -y gpg wget curl
