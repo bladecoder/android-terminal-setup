@@ -75,5 +75,5 @@ All scripts are designed to be safely re-run.
 If something changes or breaks, you should be able to run the setup again without issues.
 
 ```
-android-terminal-setup > source scripts/optional/app-codex.sh
+android-terminal-setup > source scripts/optional/app-opencode.sh
 ```
