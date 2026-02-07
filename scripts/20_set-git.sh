@@ -13,7 +13,7 @@ git config --global alias.st status
 git config --global alias.pushf "push --force-with-lease"
 git config --global alias.l "log --oneline"
 git config --global alias.last "log -1 HEAD --stat"
-git config --global alias.change-commits "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
+git config --global alias.change-commits '!f() { var="$1"; old="$2"; new="$3"; shift 3; FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --env-filter "current=$(eval echo \$$var); if [ \"$current\" = \"$old\" ]; then export $var=\"$new\"; fi" "$@"; }; f'
 
 
 git config --global push.autoSetupRemote true
