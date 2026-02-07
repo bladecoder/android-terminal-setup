@@ -9,10 +9,16 @@ if ! command -v git >/dev/null 2>&1; then
   if command -v apt-get >/dev/null 2>&1; then
     if command -v sudo >/dev/null 2>&1; then
       sudo apt-get update -y
-      sudo apt-get install -y git
+      sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y \
+        -o Dpkg::Options::="--force-confdef" \
+        -o Dpkg::Options::="--force-confold" \
+        git
     else
       apt-get update -y
-      apt-get install -y git
+      env DEBIAN_FRONTEND=noninteractive apt-get install -y \
+        -o Dpkg::Options::="--force-confdef" \
+        -o Dpkg::Options::="--force-confold" \
+        git
     fi
   elif command -v pkg >/dev/null 2>&1; then
     pkg install -y git

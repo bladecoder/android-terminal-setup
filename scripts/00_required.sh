@@ -3,7 +3,10 @@ set -euo pipefail
 
 # Needed for all installers
 sudo apt-get update -y
-sudo apt-get install -y curl git unzip wget
+sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    -o Dpkg::Options::="--force-confdef" \
+    -o Dpkg::Options::="--force-confold" \
+    curl git unzip wget
 
 # Create local folders
 mkdir -p "$HOME/.local/bin"

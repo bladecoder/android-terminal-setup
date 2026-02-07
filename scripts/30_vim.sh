@@ -1,8 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-export DEBIAN_FRONTEND=noninteractive
-
 sync_file() {
     local src="$1"
     local dst="$2"
@@ -18,7 +16,10 @@ sync_file() {
     cp "$src" "$dst"
 }
 
-sudo apt-get install -y vim
+sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    -o Dpkg::Options::="--force-confdef" \
+    -o Dpkg::Options::="--force-confold" \
+    vim
 
 sync_file "./configs/vimrc" "$HOME/.vimrc"
 
